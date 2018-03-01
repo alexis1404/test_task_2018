@@ -86,7 +86,7 @@ class AuthController extends Controller
 
         if(Sentinel::authenticate($credentials)){
 
-            return redirect('/');
+            return redirect('/private_room');
 
         }else{
 
