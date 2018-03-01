@@ -20,7 +20,10 @@ $(document).ready(function () {
 
     $('#inputEmail').keyup(function () {
         checker();
-    })
+    });
 
+    $(document).click(function () {
+        checker();
+    });
 
 });
