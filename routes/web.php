@@ -23,8 +23,18 @@ Route::post('register', 'AuthController@registerForm')->name('registerForm');
 Route::get('auth_page', 'AuthController@authPage')->name('authPage');
 Route::post('auth_form', 'AuthController@authForm')->name('authForm');
 
-
+//check mail account route
 Route::get('check_mail/{id}', 'AuthController@checkAccount')->name('checkAccount');
+
+//user private room controllers
+Route::group(['middleware' => 'checker'], function () {
+
+    Route::get('private_room', 'UserController@getUserPage')->name('userPage');
+    Route::get('get_user', 'UserController@getUser')->name('getUser');
+    Route::post('edit_user/{id}', 'UserController@editUser')->name('editUser');
+
+
+});
 
 //logout
 Route::get('logout', 'AuthController@logout')->name('logout');

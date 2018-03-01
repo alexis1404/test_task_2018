@@ -18,6 +18,13 @@ class AuthController extends Controller
 
     public function registerForm(Request $request)
     {
+        $this->validate($request, [
+            'inputEmail' => 'required|email',
+            'inputPassword' => 'required|max:50',
+            'inputName' => 'required|max:100',
+            'inputLastName' => 'required|max:100'
+        ]);
+
         $credentials = [
             'email'    => $request->inputEmail,
             'password' => $request->inputPassword,
@@ -57,6 +64,11 @@ class AuthController extends Controller
 
     public function authForm(Request $request)
     {
+        $this->validate($request, [
+            'inputEmail' => 'required|email',
+            'inputPassword' => 'required|max:50'
+        ]);
+
         $credentials = [
             'email'    => $request->inputEmail,
             'password' => $request->inputPassword,
