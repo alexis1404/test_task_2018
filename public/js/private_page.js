@@ -14,7 +14,7 @@ $(document).ready(function () {
 
     $('#sendUserData').click(function () {
         event.preventDefault();
-        errorMessafeFormHidder();
+        errorMessageFormHidder();
         let isSend = confirm('Are you sure?');
         if(isSend){
 

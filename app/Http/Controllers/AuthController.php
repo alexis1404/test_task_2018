@@ -38,7 +38,9 @@ class AuthController extends Controller
 
             Mail::to($new_user)->send(new CheckAccount($new_user));
 
-            return redirect('/');
+            $message = 'Registration successful! Check your email.';
+
+            return view('layouts.welcome', compact('message'));
         }
     }
 
